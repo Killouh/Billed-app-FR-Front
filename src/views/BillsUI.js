@@ -4,13 +4,12 @@ import LoadingPage from "./LoadingPage.js"
 
 import Actions from './Actions.js'
 
-const row = (bill) => {
+export const row = (bill) => {
   return (`
     <tr>
       <td>${bill.type}</td>
       <td>${bill.name}</td>
       <td>${bill.date}</td>
-      
       <td>${bill.amount} €</td>
       <td>${bill.status}</td>
       <td>
@@ -20,10 +19,15 @@ const row = (bill) => {
     `)
   }
 
+//Fix Order newest to oldest : 
 const rows = (data) => {
-   // Fix test : Then bills should be ordered from earliest to latest
-   return (data && data.length) ? data.sort((a,b) => {return ((a.date > b.date) ? 1 : -1 )}) .map(bill => row(bill)).join("") : ""
+   let newData = (data && data.length) ? data.sort((a,b) => 
+   {
+     return (new Date(b.date) - new Date(a.date))
+   }):""
+   return newData.map(bill => row(bill)).join("")
 }
+
 
 export default ({ data: bills, loading, error }) => {
   
