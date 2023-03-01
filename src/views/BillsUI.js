@@ -21,11 +21,7 @@ export const row = (bill) => {
 
 //Fix Order newest to oldest : 
 const rows = (data) => {
-   let newData = (data && data.length) ? data.sort((a,b) => 
-   {
-     return (new Date(b.date) - new Date(a.date))
-   }):""
-   return newData.map(bill => row(bill)).join("")
+  return (data && data.length) ? data.sort((a,b) => {return ((a.date > b.date) ? 1 : -1 )}) .map(bill => row(bill)).join("") : ""
 }
 
 

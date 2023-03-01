@@ -21,7 +21,7 @@ export default class NewBill {
     const file = fileInput.files[0];
     const allowedExtensions = ["jpg", "jpeg", "png"];
 
-    // Vérifie si le fichier a une extension valide
+    // Vérifie si le fichier a une extension valide // Voir test sur alerte (upload de fichier)
     const extension = file.name.split(".").pop().toLowerCase();
     if (!allowedExtensions.includes(extension)) {
       alert("Veuillez sélectionner un fichier JPG, JPEG ou PNG");
