@@ -92,10 +92,6 @@ describe("Given I am connected as an employee", () => {
   })
 })
 
-
-
-
-
 //Integration test GET bills / Errors managing on bills // 
 
 describe("When an error occurs on API", () => {
