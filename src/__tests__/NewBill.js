@@ -23,7 +23,7 @@ describe("Given I am connected as an employee", () => {
     type: 'Employee'
   }))
 
-  describe("When I am on a newbill and the date, ttc and attached file fields are empty", () => { 
+  describe("When I am on a newbill and date, price and attached file fields are empty", () => { 
     test ("Then the newbill stay on screen ", () => {
 
       
@@ -67,7 +67,6 @@ describe("Given I am connected as an employee", () => {
         localStorage: window, localStorage,
       })
     
-
       const uploadFile = jest.fn((e) => newBill.handleChangeFile(e))
       
       const file = screen.getByTestId("file")
@@ -109,8 +108,8 @@ describe("Given I am connected as an employee", () => {
       })
       const loadFile = jest.fn((e) => newBill.handleChangeFile(e))
       const file = screen.getByTestId("file")
-      const testFormat = new File(["c'est un test"], {
-      type: "document/txt"
+      const testFormat = new File(["Test"], {
+      type: "document/pdf"
       })
       file.addEventListener("change", loadFile)
       fireEvent.change(file, {target: {files: [testFormat]}})

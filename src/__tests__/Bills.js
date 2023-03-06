@@ -57,14 +57,15 @@ describe("Given I am connected as an employee", () => {
         bills: bills,
         localStorage: window.localStorage
       })
-      const newBillPage = jest.fn(billsPage.handleClickNewBill); // Testing newbill function
+       // Testing newbill function
+      const newBillPage = jest.fn(billsPage.handleClickNewBill);
       const btnNewBill = screen.getByTestId("btn-new-bill")
       btnNewBill.addEventListener("click", newBillPage)
       fireEvent.click(btnNewBill)
 
       
-      expect(newBillPage).toHaveBeenCalled() // page is called
-      expect(screen.getByText("Envoyer une note de frais")).toBeTruthy() //page is loaded
+      expect(newBillPage).toHaveBeenCalled() // page is called ?
+      expect(screen.getByText("Envoyer une note de frais")).toBeTruthy() //page is loaded ?
     })
   })
 
